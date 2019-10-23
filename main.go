@@ -11,9 +11,9 @@ func main () {
 	amountOfElements := 100
 	Arr := newArr.NewArr(amountOfElements)
 
-	desiredNum := 5
-	element, err := search_dr.Search(desiredNum, Arr)
+	desiredNum := 68
+	element, err, countIteration := search_dr.Search(desiredNum, Arr)
 
 	fmt.Println(Arr)
-	out.Output(element, err)
+	out.Output(element, err,  countIteration)
 }

@@ -19,7 +19,7 @@ func MakeArr (amountOfElements int) []int {
 }
 
 func FillArr (Arr []int) []int {
-	for i :=0; i < len(Arr); i++ {
+	for i := 0; i < len(Arr); i++ {
 		Arr[i] = i+1
 	}
 
