@@ -1,4 +1,4 @@
-package search_dr
+package main
 
 import (
 	"errors"
@@ -21,7 +21,7 @@ func Search (desiredNum int, Arr []int) (int, error, int) {
 			high = mid -1
 		}
 
-		if guess < desiredNum{				 // если центрально число меньше искомого, сдвигаем нижнюю границу
+		if guess < desiredNum {				 // если центрально число меньше искомого, сдвигаем нижнюю границу
 			low = mid + 1
 		}
 	}
