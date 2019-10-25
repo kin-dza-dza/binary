@@ -14,6 +14,7 @@ func Search (desiredNum int, Arr []int) (int, error, int) {
 		mid := (low + high) / 2 // ищем средний элемент
 		guess := Arr[mid]		 // по элементу достаем число
 		if guess == desiredNum { // нашли число, ура!
+
 			return mid, nil, countIteration
 		}
 
