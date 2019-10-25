@@ -1,4 +1,4 @@
-package search
+package Binary
 
 import (
 	"errors"
