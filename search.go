@@ -1,4 +1,4 @@
-package Binary
+package binary
 
 import (
 	"errors"
