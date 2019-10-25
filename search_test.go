@@ -15,7 +15,7 @@ func NewArr () []int { //техническая функция для тесто
 	return Arr
 }
 
-func TestSearch(t *testing.T) {
+func Test_deepSearch (t *testing.T) {
 	Arr := NewArr()
 
 	t.Run("Искомого числа нет в массиве", func(t *testing.T) {
@@ -58,6 +58,41 @@ func TestSearch(t *testing.T) {
 
 		if gotErr != nil {
 			t.Errorf("возвращает ошибку %q. Должно быть nil", gotErr)
+		}
+	})
+}
+
+func Test_checkSort (t *testing.T) {
+
+	t.Run("Массив из 1 элемента", func(t *testing.T) {
+		Arr := []int {1}
+
+		if !checkSort(Arr) {
+			t.Error("Считает, что одноэлементый массив не отсортирован. КАК?!?")
+		}
+	})
+
+	t.Run("Сортированный массив", func(t *testing.T) {
+		Arr := []int {1,2,3}
+
+		if !checkSort(Arr) {
+			t.Error("Сортированный массив принимает за несортированный")
+		}
+	})
+
+	t.Run("Несортированный массив", func(t *testing.T) {
+		Arr := []int {1,2,3,2}
+
+		if checkSort(Arr) {
+			t.Error("Несортированный массив принимает за сортированный")
+		}
+	})
+
+	t.Run("Неинициализированный массив", func(t *testing.T) {
+		var Arr []int
+
+		if !checkSort(Arr) {
+			t.Error("Считает, что неинициализированный массив не отсортирован. КАК?!?")
 		}
 	})
 }
