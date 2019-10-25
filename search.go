@@ -2,9 +2,35 @@ package binary
 
 import (
 	"errors"
+	"sort"
 )
 
 func Search (desiredNum int, Arr []int) (int, error, int) {
+	// сначала проверяем, отсортирован ли массив
+	if !checkSort(Arr) {
+		sort.Ints(Arr)
+	}
+
+	return deepSearch(desiredNum, Arr)
+}
+
+func checkSort (Arr []int) bool {
+	// Если массив из одного элемента, то он отсортирован
+	if len(Arr) == 1 {
+		return true
+	}
+	// если элементов больше одного, то проверка
+	for i := 1; i < len(Arr); i++ {
+		if Arr[i-1] > Arr[i] {
+
+			return false
+		}
+	}
+
+	return true
+}
+
+func deepSearch (desiredNum int, Arr []int) (int, error, int) {
 	// определяем границы поиска
 	low := 0
 	high := len(Arr) - 1
