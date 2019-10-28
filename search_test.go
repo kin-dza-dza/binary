@@ -13,16 +13,11 @@ func TestSearch (t *testing.T) {
 
 		wantElement := 0
 		wantErr := errors.New("запрашиваемого числа не существует в списке")
-		wantCountIteration := 0
 
-		gotElememt, gotErr, gotCountIteration := Search(desiredNum, Arr)
+		gotElememt, gotErr := Search(desiredNum, Arr)
 
 		if wantElement != gotElememt {
 			t.Error("возвращает неправильный элемент", gotElememt, ". Должен возвращать", wantElement)
-		}
-
-		if wantCountIteration != gotCountIteration {
-			t.Error("возвращает неправильный счетчик шагов", gotCountIteration, ". Должен возвращать", wantCountIteration)
 		}
 
 		if gotErr == nil {
@@ -35,16 +30,11 @@ func TestSearch (t *testing.T) {
 		desiredNum := 6
 
 		wantElement := 2
-		wantCountIteration := 1
 
-		gotElememt, gotErr, gotCountIteration := Search(desiredNum, Arr)
+		gotElememt, gotErr := Search(desiredNum, Arr)
 
 		if wantElement != gotElememt {
 			t.Error("возвращает неправильный элемент", gotElememt, ". Должен возвращать", wantElement)
-		}
-
-		if wantCountIteration != gotCountIteration {
-			t.Error("возвращает неправильный счетчик шагов", gotCountIteration, ". Должен возвращать", wantCountIteration)
 		}
 
 		if gotErr != nil {
@@ -57,16 +47,11 @@ func TestSearch (t *testing.T) {
 		desiredNum := 6
 
 		wantElement := 2
-		wantCountIteration := 1
 
-		gotElememt, gotErr, gotCountIteration := Search(desiredNum, Arr)
+		gotElememt, gotErr := Search(desiredNum, Arr)
 
 		if wantElement != gotElememt {
 			t.Error("возвращает неправильный элемент", gotElememt, ". Должен возвращать", wantElement)
-		}
-
-		if wantCountIteration != gotCountIteration {
-			t.Error("возвращает неправильный счетчик шагов", gotCountIteration, ". Должен возвращать", wantCountIteration)
 		}
 
 		if gotErr != nil {
@@ -80,16 +65,11 @@ func TestSearch (t *testing.T) {
 
 		wantElement := 0
 		wantErr := errors.New("запрашиваемого числа не существует в списке")
-		wantCountIteration := 0
 
-		gotElememt, gotErr, gotCountIteration := Search(desiredNum, Arr)
+		gotElememt, gotErr := Search(desiredNum, Arr)
 
 		if wantElement != gotElememt {
 			t.Error("возвращает неправильный элемент", gotElememt, ". Должен возвращать", wantElement)
-		}
-
-		if wantCountIteration != gotCountIteration {
-			t.Error("возвращает неправильный счетчик шагов", gotCountIteration, ". Должен возвращать", wantCountIteration)
 		}
 
 		if gotErr == nil {
@@ -102,16 +82,11 @@ func TestSearch (t *testing.T) {
 		desiredNum := 2
 
 		wantElement := 0
-		wantCountIteration := 1
 
-		gotElememt, gotErr, gotCountIteration := Search(desiredNum, Arr)
+		gotElememt, gotErr := Search(desiredNum, Arr)
 
 		if wantElement != gotElememt {
 			t.Error("возвращает неправильный элемент", gotElememt, ". Должен возвращать", wantElement)
-		}
-
-		if wantCountIteration != gotCountIteration {
-			t.Error("возвращает неправильный счетчик шагов", gotCountIteration, ". Должен возвращать", wantCountIteration)
 		}
 
 		if gotErr != nil {
@@ -125,16 +100,11 @@ func TestSearch (t *testing.T) {
 
 		wantElement := 0
 		wantErr := errors.New("запрашиваемого числа не существует в списке")
-		wantCountIteration := 0
 
-		gotElememt, gotErr, gotCountIteration := Search(desiredNum, Arr)
+		gotElememt, gotErr := Search(desiredNum, Arr)
 
 		if wantElement != gotElememt {
 			t.Error("возвращает неправильный элемент", gotElememt, ". Должен возвращать", wantElement)
-		}
-
-		if wantCountIteration != gotCountIteration {
-			t.Error("возвращает неправильный счетчик шагов", gotCountIteration, ". Должен возвращать", wantCountIteration)
 		}
 
 		if gotErr == nil {

@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-func Search (desiredNum int, Arr []int) (int, error, int) {
+func Search (desiredNum int, Arr []int) (int, error) {
 	// сначала проверяем, отсортирован ли массив
 	if !sort.IntsAreSorted(Arr) {
 		sort.Ints(Arr)
@@ -15,13 +15,13 @@ func Search (desiredNum int, Arr []int) (int, error, int) {
 	low := 0
 	high := len(Arr) - 1
 
-	for countIteration := 1; low <= high ; countIteration++ {
+	for low <= high {
 		mid := (low + high) / 2 // ищем средний элемент
 		guess := Arr[mid]		 // по элементу достаем число
 
 		if guess == desiredNum { // нашли число, ура!
 
-			return mid, nil, countIteration
+			return mid, nil
 		}
 
 		if guess > desiredNum {  // если центральное число больше искомого, сдвигаем верхнюю границу
@@ -33,5 +33,5 @@ func Search (desiredNum int, Arr []int) (int, error, int) {
 		}
 	}
 
-	return 0, errors.New("запрашиваемого числа не существует в списке"), 0
+	return 0, errors.New("запрашиваемого числа не существует в списке")
 }
