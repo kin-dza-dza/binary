@@ -7,7 +7,7 @@ import (
 
 func Search (desiredNum int, Arr []int) (int, error, int) {
 	// сначала проверяем, отсортирован ли массив
-	if sort.IntsAreSorted(Arr) {
+	if !sort.IntsAreSorted(Arr) {
 		sort.Ints(Arr)
 	}
 

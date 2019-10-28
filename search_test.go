@@ -5,20 +5,10 @@ import (
 	"testing"
 )
 
-func NewArr () []int { //техническая функция для тестов. Делает новый упорядоченный массив
-	Arr := make([]int, 5)
-
-	for i := 0; i < len(Arr); i++ {
-		Arr[i] = (i * 2) + 2
-	}
-
-	return Arr
-}
-
 func TestSearch (t *testing.T) {
-	Arr := NewArr()
 
 	t.Run("Искомого числа нет в массиве", func(t *testing.T) {
+		Arr := []int {2,4,6,8,10}
 		desiredNum := 5
 
 		wantElement := 0
@@ -41,6 +31,7 @@ func TestSearch (t *testing.T) {
 	})
 
 	t.Run("Искомое число есть в массиве", func(t *testing.T) {
+		Arr := []int {2,4,6,8,10}
 		desiredNum := 6
 
 		wantElement := 2
@@ -58,6 +49,96 @@ func TestSearch (t *testing.T) {
 
 		if gotErr != nil {
 			t.Errorf("возвращает ошибку %q. Должно быть nil", gotErr)
+		}
+	})
+
+	t.Run("Массив не сортирован, искомое число есть", func(t *testing.T) {
+		Arr := []int {2,6,4,8,10}
+		desiredNum := 6
+
+		wantElement := 2
+		wantCountIteration := 1
+
+		gotElememt, gotErr, gotCountIteration := Search(desiredNum, Arr)
+
+		if wantElement != gotElememt {
+			t.Error("возвращает неправильный элемент", gotElememt, ". Должен возвращать", wantElement)
+		}
+
+		if wantCountIteration != gotCountIteration {
+			t.Error("возвращает неправильный счетчик шагов", gotCountIteration, ". Должен возвращать", wantCountIteration)
+		}
+
+		if gotErr != nil {
+			t.Errorf("возвращает ошибку %q. Должно быть nil", gotErr)
+		}
+	})
+
+	t.Run("Искомого числа нет в массиве", func(t *testing.T) {
+		Arr := []int {2,6,4,8,10}
+		desiredNum := 5
+
+		wantElement := 0
+		wantErr := errors.New("запрашиваемого числа не существует в списке")
+		wantCountIteration := 0
+
+		gotElememt, gotErr, gotCountIteration := Search(desiredNum, Arr)
+
+		if wantElement != gotElememt {
+			t.Error("возвращает неправильный элемент", gotElememt, ". Должен возвращать", wantElement)
+		}
+
+		if wantCountIteration != gotCountIteration {
+			t.Error("возвращает неправильный счетчик шагов", gotCountIteration, ". Должен возвращать", wantCountIteration)
+		}
+
+		if gotErr == nil {
+			t.Errorf("не возвращает ошибку. Должен вернуть %q", wantErr)
+		}
+	})
+
+	t.Run("массив из одного элемента", func(t *testing.T) {
+		Arr := []int {2}
+		desiredNum := 2
+
+		wantElement := 0
+		wantCountIteration := 1
+
+		gotElememt, gotErr, gotCountIteration := Search(desiredNum, Arr)
+
+		if wantElement != gotElememt {
+			t.Error("возвращает неправильный элемент", gotElememt, ". Должен возвращать", wantElement)
+		}
+
+		if wantCountIteration != gotCountIteration {
+			t.Error("возвращает неправильный счетчик шагов", gotCountIteration, ". Должен возвращать", wantCountIteration)
+		}
+
+		if gotErr != nil {
+			t.Errorf("возвращает ошибку %q. Должно быть nil", gotErr)
+		}
+	})
+
+	t.Run("не инициализированный массив", func(t *testing.T) {
+		var Arr []int
+		desiredNum := 5
+
+		wantElement := 0
+		wantErr := errors.New("запрашиваемого числа не существует в списке")
+		wantCountIteration := 0
+
+		gotElememt, gotErr, gotCountIteration := Search(desiredNum, Arr)
+
+		if wantElement != gotElememt {
+			t.Error("возвращает неправильный элемент", gotElememt, ". Должен возвращать", wantElement)
+		}
+
+		if wantCountIteration != gotCountIteration {
+			t.Error("возвращает неправильный счетчик шагов", gotCountIteration, ". Должен возвращать", wantCountIteration)
+		}
+
+		if gotErr == nil {
+			t.Errorf("не возвращает ошибку. Должен вернуть %q", wantErr)
 		}
 	})
 }
