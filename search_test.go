@@ -2,6 +2,7 @@ package binary
 
 import (
 	"errors"
+	"math/rand"
 	"testing"
 )
 
@@ -321,6 +322,16 @@ func makeArr (amountOfElements int) []int {
 	Arr := make([]int, amountOfElements)
 	for i := 0; i < amountOfElements; i++ {
 		Arr[i] = i + 1
+	}
+
+	return Arr
+}
+
+func makeArrRand () []int {
+	amountOfElements := rand.Intn(1000000)
+	Arr := make([]int, amountOfElements)
+	for i := 0; i < amountOfElements; i++ {
+		Arr[i] = rand.Int()
 	}
 
 	return Arr
