@@ -254,7 +254,7 @@ func TestSearch (t *testing.T) {
 			Arr := makeArr(100)
 			desiredNum := 50
 
-			wantElement := 24
+			wantElement := 49
 			gotElememt, gotErr := Search(desiredNum, Arr)
 
 			if wantElement != gotElememt {
@@ -270,7 +270,7 @@ func TestSearch (t *testing.T) {
 			Arr := makeArr(10000)
 			desiredNum := 5000
 
-			wantElement := 2499
+			wantElement := 4999
 			gotElememt, gotErr := Search(desiredNum, Arr)
 
 			if wantElement != gotElememt {
@@ -286,7 +286,7 @@ func TestSearch (t *testing.T) {
 			Arr := makeArr(1000000)
 			desiredNum := 500000
 
-			wantElement := 249999
+			wantElement := 499999
 			gotElememt, gotErr := Search(desiredNum, Arr)
 
 			if wantElement != gotElememt {
@@ -302,7 +302,7 @@ func TestSearch (t *testing.T) {
 			Arr := makeArr(100000000)
 			desiredNum := 5000000
 
-			wantElement := 2499999
+			wantElement := 4999999
 			gotElememt, gotErr := Search(desiredNum, Arr)
 
 			if wantElement != gotElememt {
@@ -320,7 +320,7 @@ func TestSearch (t *testing.T) {
 func makeArr (amountOfElements int) []int {
 	Arr := make([]int, amountOfElements)
 	for i := 0; i < amountOfElements; i++ {
-		Arr[i] = i * 2 + 2
+		Arr[i] = i + 1
 	}
 
 	return Arr
